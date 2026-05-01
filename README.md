@@ -118,75 +118,169 @@
 
 ## 📂 Project Structure
 
+```
 nexora-task-manager/
-│
-├── assets/ # 📸 Screenshots used in README
-│ ├── screenshot-landing.png
-│ ├── screenshot-features.png
-│ ├── screenshot-login.png
-│ ├── screenshot-signup.png
-│ ├── screenshot-dashboard.png
-│ ├── screenshot-landing-dashboard-preview.png
-│ └── screenshot-cta.png
-│
-├── backend/ # ⚙️ Express API (Node.js)
-│ ├── routes/ # API route handlers
-│ ├── middleware/ # Auth & role-based middleware
-│ ├── db.js # Database configuration
-│ └── server.js # Entry point
-│
-├── frontend/ # 🎨 React client (Vite)
-│ ├── src/
-│ │ ├── components/ # Reusable UI components
-│ │ ├── pages/ # App pages
-│ │ ├── context/ # Global state (Auth)
-│ │ ├── api.js # API integration
-│ │ └── App.jsx # Main app entry
-│ └── vite.config.js
-│
-├── Dockerfile # 🐳 Container setup
-├── railway.json # 🚀 Railway deployment config
-├── package.json # Dependencies & scripts
-└── README.md # 📘 Project documentation
+├── backend/
+│   ├── db.js                  # SQLite schema & connection
+│   ├── server.js              # Express app + static serving
+│   ├── middleware/
+│   │   └── auth.js            # JWT auth, requireAdmin, requireProjectRole
+│   └── routes/
+│       ├── auth.js            # /api/auth — signup, login, me
+│       ├── projects.js        # /api/projects — CRUD + member management
+│       ├── tasks.js           # /api/tasks — CRUD + dashboard summary
+│       └── users.js           # /api/users — admin user management
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx            # Router, protected routes
+│   │   ├── api.js             # Axios/fetch wrapper
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx
+│   │   ├── components/
+│   │   │   ├── InteractiveBackground.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── TaskCard.jsx
+│   │   │   └── TaskModal.jsx
+│   │   └── pages/
+│   │       ├── Landing.jsx
+│   │       ├── Login.jsx
+│   │       ├── Signup.jsx
+│   │       ├── Dashboard.jsx
+│   │       ├── Projects.jsx
+│   │       ├── ProjectDetail.jsx
+│   │       ├── Tasks.jsx
+│   │       ├── Users.jsx
+│   │       └── Settings.jsx
+│   └── vite.config.js
+├── Dockerfile                 # Multi-stage: build frontend → serve via Express
+├── railway.json               # Railway deployment config
+└── package.json
+```
 
-⚙️ Setup & Installation
-1️⃣ Clone Repository
-git clone https://github.com/your-username/nexora-task-manager.gitcd nexora-task-manager
+---
 
-2️⃣ Backend Setup
-cd backendnpm installnode server.js
-Runs on:
-http://localhost:5001
+## Database Schema
 
-3️⃣ Frontend Setup
-cd frontendnpm installnpm run dev
-Runs on:
-http://localhost:5173
+```sql
+users            — id, name, email, password, role (admin|member), avatar, created_at
+projects         — id, name, description, color, owner_id → users, created_at
+project_members  — project_id, user_id, role (admin|member), joined_at
+tasks            — id, title, description, project_id, assignee_id, creator_id,
+                   status (todo|in_progress|done|overdue), priority (low|medium|high|critical),
+                   due_date, created_at, updated_at
+```
 
-🔑 Environment Variables
-Create .env inside backend/:
-PORT=5001JWT_SECRET=your_super_secret_keyDB_PATH=./taskmanager.dbFRONTEND_URL=*
-⚠️ Always use a strong JWT_SECRET in production.
+---
 
-🚀 Deployment (Railway)
+## API Reference
 
+### Auth — `/api/auth`
 
-Push code to GitHub
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | `/signup` | — | Register a new user |
+| POST | `/login` | — | Login, receive JWT |
+| GET | `/me` | ✅ | Get current user |
+| PUT | `/me` | ✅ | Update display name |
 
+### Projects — `/api/projects`
 
-Go to Railway
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET | `/` | ✅ | List user's projects |
+| POST | `/` | ✅ | Create project |
+| GET | `/:projectId` | ✅ Member | Get project + members + stats |
+| PUT | `/:projectId` | ✅ Admin | Update project |
+| DELETE | `/:projectId` | ✅ Admin | Delete project |
+| POST | `/:projectId/members` | ✅ Admin | Add member by email |
+| DELETE | `/:projectId/members/:userId` | ✅ Admin | Remove member |
 
+### Tasks — `/api/tasks`
 
-Create new project → Link repo
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET | `/` | ✅ | List tasks (filter by `projectId`, `status`, `assignee`, `priority`) |
+| POST | `/` | ✅ | Create task |
+| GET | `/dashboard/summary` | ✅ | Dashboard stats + recent tasks |
+| GET | `/:id` | ✅ | Get task by ID |
+| PUT | `/:id` | ✅ | Update task |
+| DELETE | `/:id` | ✅ | Delete task |
 
+### Users — `/api/users`
 
-Auto-detect Dockerfile
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET | `/` | ✅ | Admin: list all users; Members: search by name/email |
+| PUT | `/:id/role` | ✅ Admin | Change user role |
+| DELETE | `/:id` | ✅ Admin | Delete user |
 
+---
 
-Add environment variable:
-JWT_SECRET=your_secret
+## Running Locally
 
+### Prerequisites
 
-Deploy 🚀
+- Node.js 20+
+- npm
 
+### 1. Clone the repo
 
+```bash
+git clone https://github.com/your-username/nexora-task-manager.git
+cd nexora-task-manager
+```
+
+### 2. Start the backend
+
+```bash
+cd backend
+npm install
+node server.js
+# Runs on http://localhost:5001
+```
+
+### 3. Start the frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+# Runs on http://localhost:5173
+```
+
+### Environment Variables (Backend)
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `PORT` | `5001` | Server port |
+| `JWT_SECRET` | `super_secret_dev_key_change_in_prod` | ⚠️ Change in production |
+| `DB_PATH` | `./taskmanager.db` | SQLite database file path |
+| `FRONTEND_URL` | `*` | CORS allowed origin |
+
+> ⚠️ **Important:** Always set a strong `JWT_SECRET` in production.
+
+---
+
+## Deploying to Railway
+
+This project includes a `railway.json` and a multi-stage `Dockerfile` for one-click Railway deployment.
+
+1. Push your code to GitHub
+2. Create a new Railway project and link your repo
+3. Railway will auto-detect the `Dockerfile` and build
+4. Set the `JWT_SECRET` environment variable in Railway's dashboard
+
+The Dockerfile builds the React frontend first, copies the `dist/` output into the Express backend image, and serves everything from a single container on port `8080`.
+
+---
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+
+---
+
+## License
+
+[MIT](LICENSE)
