@@ -91,24 +91,28 @@
 - Overdue task alerts
 - Recent activity tracking
 
-🎨 UI/UX
+### 🎨 UI/UX
+- Dark modern SaaS UI
+- Smooth animations using **Framer Motion**
+- Interactive particle background
+- Clean & minimal design
 
+---
 
-Dark modern SaaS UI
+## 🛠️ Tech Stack
 
+| Layer       | Technology                          |
+|------------|------------------------------------|
+| Frontend   | React 18, React Router v6, Vite    |
+| Backend    | Node.js, Express                   |
+| Database   | SQLite (`better-sqlite3`)          |
+| Auth       | JWT (`jsonwebtoken`), bcrypt       |
+| Styling    | Tailwind CSS + Custom CSS          |
+| Animations | Framer Motion                      |
+| Deployment | Railway + Docker                   |
 
-Smooth animations (Framer Motion)
+---
 
-
-Interactive particle background
-
-
-Clean & minimal design
-
-
-
-🛠️ Tech Stack
-LayerTechnologyFrontendReact 18, React Router v6, ViteBackendNode.js, ExpressDatabaseSQLite (better-sqlite3)AuthJWT (jsonwebtoken), bcryptStylingTailwind CSS + Custom CSSAnimationsFramer MotionDeploymentRailway + Docker
 
 📂 Project Structure
 nexora-task-manager/├── assets/│   ├── screenshot-landing.png│   ├── screenshot-features.png│   ├── screenshot-login.png│   ├── screenshot-signup.png│   ├── screenshot-dashboard.png│   ├── screenshot-landing-dashboard-preview.png│   └── screenshot-cta.png│├── backend/├── frontend/├── Dockerfile├── railway.json├── package.json└── README.md
@@ -154,6 +158,3 @@ JWT_SECRET=your_secret
 Deploy 🚀
 
 
-
-
-Just say 👍
