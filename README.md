@@ -1,4 +1,4 @@
-🚀 Nexora — Task Manager
+<p align="center"><b></b>🚀 Nexora — Task Manager</b>
 <p align="center">
   <b>Manage tasks. Move at the speed of light.</b>
 </p>
