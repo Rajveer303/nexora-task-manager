@@ -1,5 +1,6 @@
-<p align="center"><b></b>🚀 Nexora — Task Manager</b>
-<p align="center">
+<h1 align="center">
+  🚀 <b>Nexora — Task Manager</b>
+</h1><p align="center">
   <b>Manage tasks. Move at the speed of light.</b>
 </p>
 <p align="center">
