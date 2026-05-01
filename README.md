@@ -1,40 +1,39 @@
 🚀 Nexora — Task Manager
-
-Manage tasks. Move at the speed of light.
-
-
-
-A modern, full-stack team task management platform built for productivity-focused teams. Nexora delivers a minimal, distraction-free UI with powerful collaboration features.
-🔗 Live Demo:
-👉 https://nexora-task-manager-production.up.railway.app/
+<p align="center">
+  <b>Manage tasks. Move at the speed of light.</b>
+</p>
+<p align="center">
+  A modern, full-stack <b>team task management platform</b> built for productivity-focused teams.<br/>
+  Nexora delivers a <b>minimal, distraction-free UI</b> with powerful collaboration features.
+</p>
+<p align="center">
+  <a href="https://nexora-task-manager-production.up.railway.app/">
+    <img src="https://img.shields.io/badge/Live%20Demo-Visit%20Now-ff3b3b?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+</p>
 
 📸 Screenshots
 🏠 Landing Page
 <p align="center">
   <img src="assets/screenshot-landing.png" width="100%" />
 </p>
-
 ✨ Feature Highlights
 <p align="center">
   <img src="assets/screenshot-features.png" width="100%" />
 </p>
-
 🔐 Authentication
 <p align="center">
   <img src="assets/screenshot-login.png" width="45%" />
   <img src="assets/screenshot-signup.png" width="45%" />
 </p>
-
 📊 Dashboard
 <p align="center">
   <img src="assets/screenshot-dashboard.png" width="100%" />
 </p>
-
 🖥️ App Preview (Landing + Dashboard)
 <p align="center">
   <img src="assets/screenshot-landing-dashboard-preview.png" width="100%" />
 </p>
-
 🚀 Call to Action
 <p align="center">
   <img src="assets/screenshot-cta.png" width="100%" />
@@ -168,9 +167,9 @@ Runs on:
 http://localhost:5173
 
 🔑 Environment Variables
-Create .env in backend/:
+Create .env inside backend/:
 PORT=5001JWT_SECRET=your_super_secret_keyDB_PATH=./taskmanager.dbFRONTEND_URL=*
-⚠️ Use a strong JWT_SECRET in production.
+⚠️ Always use a strong JWT_SECRET in production.
 
 🚀 Deployment (Railway)
 
@@ -187,8 +186,13 @@ Create new project → Link repo
 Auto-detect Dockerfile
 
 
-Add env variable:
+Add environment variable:
 JWT_SECRET=your_secret
 
 
 Deploy 🚀
+
+
+
+
+Just say 👍
