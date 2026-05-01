@@ -91,6 +91,8 @@
 - Overdue task alerts
 - Recent activity tracking
 
+---
+
 ### 🎨 UI/UX
 - Dark modern SaaS UI
 - Smooth animations using **Framer Motion**
@@ -114,8 +116,24 @@
 ---
 
 
-📂 Project Structure
-nexora-task-manager/├── assets/│   ├── screenshot-landing.png│   ├── screenshot-features.png│   ├── screenshot-login.png│   ├── screenshot-signup.png│   ├── screenshot-dashboard.png│   ├── screenshot-landing-dashboard-preview.png│   └── screenshot-cta.png│├── backend/├── frontend/├── Dockerfile├── railway.json├── package.json└── README.md
+## 📂 Project Structure
+
+nexora-task-manager/
+├── assets/
+│ ├── screenshot-landing.png
+│ ├── screenshot-features.png
+│ ├── screenshot-login.png
+│ ├── screenshot-signup.png
+│ ├── screenshot-dashboard.png
+│ ├── screenshot-landing-dashboard-preview.png
+│ └── screenshot-cta.png
+│
+├── backend/
+├── frontend/
+├── Dockerfile
+├── railway.json
+├── package.json
+└── README.md
 
 ⚙️ Setup & Installation
 1️⃣ Clone Repository
