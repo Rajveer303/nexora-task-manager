@@ -119,7 +119,8 @@
 ## 📂 Project Structure
 
 nexora-task-manager/
-├── assets/
+│
+├── assets/ # 📸 Screenshots used in README
 │ ├── screenshot-landing.png
 │ ├── screenshot-features.png
 │ ├── screenshot-login.png
@@ -128,12 +129,25 @@ nexora-task-manager/
 │ ├── screenshot-landing-dashboard-preview.png
 │ └── screenshot-cta.png
 │
-├── backend/
-├── frontend/
-├── Dockerfile
-├── railway.json
-├── package.json
-└── README.md
+├── backend/ # ⚙️ Express API (Node.js)
+│ ├── routes/ # API route handlers
+│ ├── middleware/ # Auth & role-based middleware
+│ ├── db.js # Database configuration
+│ └── server.js # Entry point
+│
+├── frontend/ # 🎨 React client (Vite)
+│ ├── src/
+│ │ ├── components/ # Reusable UI components
+│ │ ├── pages/ # App pages
+│ │ ├── context/ # Global state (Auth)
+│ │ ├── api.js # API integration
+│ │ └── App.jsx # Main app entry
+│ └── vite.config.js
+│
+├── Dockerfile # 🐳 Container setup
+├── railway.json # 🚀 Railway deployment config
+├── package.json # Dependencies & scripts
+└── README.md # 📘 Project documentation
 
 ⚙️ Setup & Installation
 1️⃣ Clone Repository
