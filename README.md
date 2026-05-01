@@ -40,96 +40,56 @@
   <img src="assets/screenshot-cta.png" width="100%" />
 </p>
 
-✨ Features
-🔐 Authentication & Security
+## ✨ Features
 
+### 🔐 Authentication & Security
+- JWT-based authentication (7-day expiry)
+- Password hashing using bcrypt
+- Protected routes (frontend + backend)
 
-JWT-based authentication (7-day expiry)
+---
 
+### 📁 Project Management
+- Create, edit, and delete projects
+- Assign custom colors
+- Automatically added as project admin on creation
 
-Password hashing using bcrypt
+---
 
+### ✅ Task Management
+- Full CRUD operations
+- Status: `todo`, `in_progress`, `done`, `overdue`
+- Priority: `low`, `medium`, `high`, `critical`
+- Assign tasks to team members
+- Due date tracking
 
-Protected routes (frontend + backend)
+---
 
+### ⏰ Smart System
+- Auto-detect overdue tasks
+- Real-time dashboard summary
 
-📁 Project Management
+---
 
+### 👥 Team Collaboration
+- Invite users via email
+- Project-level roles: **Admin / Member**
+- Shared workspace for teams
 
-Create, edit, delete projects
+---
 
+### 🛡️ Role-Based Access Control
+- Global roles: `admin`, `member`
+- Secure API route protection
 
-Assign custom colors
+---
 
-
-Auto project admin on creation
-
-
-✅ Task Management
-
-
-Full CRUD operations
-
-
-Status: todo, in_progress, done, overdue
-
-
-Priority: low, medium, high, critical
-
-
-Assign tasks to team members
-
-
-Due date tracking
-
-
-⏰ Smart System
-
-
-Auto-detect overdue tasks
-
-
-Real-time dashboard summary
-
-
-👥 Team Collaboration
-
-
-Invite users via email
-
-
-Project-level roles (Admin / Member)
-
-
-Shared workspace
-
-
-🛡️ Role-Based Access Control
-
-
-Global roles: admin, member
-
-
-Secure API route protection
-
-
-📊 Dashboard Insights
-
-
-Total tasks
-
-
-Completed tasks
-
-
-In-progress tasks
-
-
-Overdue tasks
-
-
-Recent activity tracking
-
+### 📊 Dashboard Insights
+- Total tasks overview
+- Completed tasks tracking
+- In-progress tasks monitoring
+- Overdue task alerts
+- Recent activity tracking
 
 🎨 UI/UX
 
